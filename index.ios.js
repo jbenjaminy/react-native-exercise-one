@@ -33,8 +33,13 @@ const App = () => {
         // Can use Babel's 'try it out' feature:
         // Plug in JSX and it will output JS code.
     return (
-        <p>Some text</p>
+        <Text>Some text</Text>
     );
 };
 
 /* ----- STEP 3: RENDER IT TO THE DEVICE. ----- */
+// Tells ReactNative to show this component on the devices
+// In any ReactNative app, have to register at least one component.
+// First argument should match project name, second one should match first
+// component to render in our application.
+ReactNative.AppRegistry.registerComponent('albums', () => App);
