@@ -57,10 +57,16 @@ class AlbumList extends Component {
             // tweaking render method).
         // 'State' is built in system in React.
         axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-            .then(response => console.log(response));
+            // set the list of albums (available at response.data) to
+            // our albums list in our state. we're switching the empty
+            // array from the initial state to an array full of objects.
+            // 'this.setState' is the only we we will update our component state,
+            // never set it directly (mutating it)
+            .then(response => this.setState({ albums: response.data }));
     }
 
     render() {
+        console.log(this.state);
         return (
             <View>
                 <Text>Album List!</Text>
