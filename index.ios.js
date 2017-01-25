@@ -31,7 +31,7 @@ import { View, AppRegistry } from 'react-native';
 // component nesting go hand in hand.
 // Must provide local path for importing your own files.
 import Header from './src/components/header';
-import AlbumList from './src/components/album-list'
+import AlbumList from './src/components/album-list';
 
 /* ----- STEP 2: CREATE A COMPONENT. ----- */
 // Create the component itself.
