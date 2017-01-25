@@ -2,6 +2,8 @@
 // destructure the React library.
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+// axios is used to make http request.
+import axios from 'axios';
 // ORIGINAL FUNCTIONAL COMPONENT REFACTORED INTO A CLASS-BASED COMPONENT.
 // const AlbumList = () => {
 //     return (
@@ -24,8 +26,14 @@ import { View, Text } from 'react-native';
 class AlbumList extends Component {
     // anytime component is about to be rendered to our device, this method
     // will automatically be called for us.
+    // Perfect location for initiating a data load in your app.
     componentWillMount() {
         console.log('componentWillMount call in AlbumList');
+        // Making an http request is inherently asynchronous, so this returns
+        // a promise back to us. Function passed to .then() will be called
+        // once the http request completes.
+        axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+            .then(response => console.log(response));
     }
 
     render() {
