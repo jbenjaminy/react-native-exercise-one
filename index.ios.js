@@ -16,13 +16,19 @@ import React from 'react';
 // React Native Library:
     // Knows how to take the output from a component and place it on the screen.
     // Provides default core components (image, text)
-import ReactNative from 'react-native';
+// Text tag is a primitive element provided to us by React-Native Library
+    // Do so with import destructuring
+    // Tell it that we don't need access to the whole library, just the
+    // Text property & App Registry function of the library
+import { Text, AppRegistry } from 'react-native';
 
 /* ----- STEP 2: CREATE A COMPONENT. ----- */
 // Create the component itself.
 // To define a component, we use a JS function, which returns some object that
 // describes what it should look like on our device.
-const App = () => {
+// Since all we are doing with this fatero (sp?) function is returning a single
+// object, we can omit the return statement and omit the curly braces.
+const App = () => (
     // Looks like HTML but this is actually JSX -- an extension to the JS
     // language that is used to write React components.
     // Follows same semantics of HTML (opening/closing tags w/ content)
@@ -32,14 +38,14 @@ const App = () => {
     // Looks cleaner than a bunch of React.createElement{} calls too.
         // Can use Babel's 'try it out' feature:
         // Plug in JSX and it will output JS code.
-    return (
-        <Text>Some text</Text>
-    );
-};
+    <Text>Some text</Text>
+);
 
 /* ----- STEP 3: RENDER IT TO THE DEVICE. ----- */
 // Tells ReactNative to show this component on the devices
 // In any ReactNative app, have to register at least one component.
 // First argument should match project name, second one should match first
 // component to render in our application.
-ReactNative.AppRegistry.registerComponent('albums', () => App);
+// If we weren't importating AppRegistry directly, but rather the whole
+// react-native library, we would need ReactNative.AppRegistry...
+AppRegistry.registerComponent('albums', () => App);
