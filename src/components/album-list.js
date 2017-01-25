@@ -16,8 +16,18 @@ import { View, Text } from 'react-native';
 // 'render' method).
     // Only requirement of the render method is that it returns some amount
     // of JSX.
+// Lifecycle Methods: another advantage of class-based components (class-based
+// components have more awareness of themselves).
+    // For example, they know when they are about to be rendered -- we can get
+    // notification of that and use it to fetch data, for example.
 
 class AlbumList extends Component {
+    // anytime component is about to be rendered to our device, this method
+    // will automatically be called for us.
+    componentWillMount() {
+        console.log('componentWillMount call in AlbumList');
+    }
+
     render() {
         return (
             <View>
