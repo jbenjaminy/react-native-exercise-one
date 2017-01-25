@@ -50,7 +50,7 @@ const App = () => (
         // Plug in JSX and it will output JS code.
     // <Text>Some text</Text>
     // Use self-closing tags for empty components.
-    <Header />
+    <Header headerText={'Albums'} />
 );
 
 /* ----- STEP 3: RENDER IT TO THE DEVICE. ----- */
