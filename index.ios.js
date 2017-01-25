@@ -3,6 +3,7 @@
 
 // Apps we build are composed of a collection of many components
 // Components are any objects to be rendered on the screen of device.
+    // Always use one component per file.
 
 /* ----- STEP 1: IMPORT LIBRARIES TO HELP CREATE COMPONENT. ----- */
 // Import Statements:
