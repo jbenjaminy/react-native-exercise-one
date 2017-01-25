@@ -24,13 +24,14 @@ import React from 'react';
 // With npm all package names are unique. that's why we don't have to provide
 // relative path.
 // import { Text, AppRegistry } from 'react-native';
-import { AppRegistry } from 'react-native';
+import { View, AppRegistry } from 'react-native';
 
 // Use component nesting -- placing one component inside another.
 // Import header here for nesting. Consuming exported components and
 // component nesting go hand in hand.
 // Must provide local path for importing your own files.
 import Header from './src/components/header';
+import AlbumList from './src/components/album-list'
 
 /* ----- STEP 2: CREATE A COMPONENT. ----- */
 // Create the component itself.
@@ -50,7 +51,12 @@ const App = () => (
         // Plug in JSX and it will output JS code.
     // <Text>Some text</Text>
     // Use self-closing tags for empty components.
-    <Header headerText={'Albums'} />
+    // For any component, must only have one return one tag, so must wrap with
+    // a single top-level tag when we have multiple tags to return.
+    <View>
+        <Header headerText={'Albums'} />
+        <AlbumList />
+    </View>
 );
 
 /* ----- STEP 3: RENDER IT TO THE DEVICE. ----- */
