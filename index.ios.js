@@ -21,7 +21,16 @@ import React from 'react';
     // Do so with import destructuring
     // Tell it that we don't need access to the whole library, just the
     // Text property & App Registry function of the library
-import { Text, AppRegistry } from 'react-native';
+// With npm all package names are unique. that's why we don't have to provide
+// relative path.
+// import { Text, AppRegistry } from 'react-native';
+import { AppRegistry } from 'react-native';
+
+// Use component nesting -- placing one component inside another.
+// Import header here for nesting. Consuming exported components and
+// component nesting go hand in hand.
+// Must provide local path for importing your own files.
+import Header from './src/components/header';
 
 /* ----- STEP 2: CREATE A COMPONENT. ----- */
 // Create the component itself.
@@ -39,7 +48,9 @@ const App = () => (
     // Looks cleaner than a bunch of React.createElement{} calls too.
         // Can use Babel's 'try it out' feature:
         // Plug in JSX and it will output JS code.
-    <Text>Some text</Text>
+    // <Text>Some text</Text>
+    // Use self-closing tags for empty components.
+    <Header />
 );
 
 /* ----- STEP 3: RENDER IT TO THE DEVICE. ----- */
