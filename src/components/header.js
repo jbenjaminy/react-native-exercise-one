@@ -28,6 +28,16 @@ const Header = (props) => {
             // Rather than hardcoding this text, we reuse header component by
                 // making this text variable, by using props.
                 // <Text style={textStyle}>Albums!</Text>
+        // Layout: want to create inline-block effect with an image and two
+        // lines of text.
+            // Wrap the image in a separate view from the text lines.
+            // Use 'justifyContent: 'flex-start'' to line up the items.
+                // This is making use of the 'flexDirection' + 'justifyContent'
+            // 'flexDirection' is set to 'row'.
+        // 'justifyContent' can be used for vertical or horizontal layout,
+        // as determined by the 'flexDirection' property.
+            // 'flexDirection' is by default set to 'column', but by changing
+            // this setting to 'row', we can create an inline-block effect.
         <View style={viewStyle}>
             <Text style={textStyle}>{props.headerText}</Text>
         </View>
