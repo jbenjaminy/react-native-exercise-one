@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, Text } from 'react-native';
 import CardContainer from './card-container';
 import CardSection from './card-section';
+import Button from './button';
 // Destructure the props, since we are only referencing the album object.
 // Two options:
     // const AlbumDetail = ({ album: { thumbnail_image, title, artist } }) => (
@@ -61,6 +62,7 @@ const AlbumDetail = ({ album }) => {
                     source={{ uri: image }}
                 />
             </CardSection>
+            <Button />
         </CardContainer>
     );
 };
