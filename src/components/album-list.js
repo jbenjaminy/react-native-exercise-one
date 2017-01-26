@@ -1,7 +1,14 @@
 // Must import the Component class from the React library, but don't want to
 // destructure the React library.
 import React, { Component } from 'react';
-import { View } from 'react-native';
+// SCROLLING: Since the album list is the main component, in which the big
+// list of albums & their details are rendered, this is where we want to enable
+// scrolling. So we import ScrollView.
+    // NOTE: Even after we enabled scrolling, everything just appeared to bounce
+    // back up after we scroll down.
+    // SOLUTION: Must add style property of 'flex: 1' to our root View element,
+    // whenever we add a ScrollView.
+import { ScrollView } from 'react-native';
 // axios is used to make http request.
 import axios from 'axios';
 import AlbumDetail from './album-detail';
@@ -80,9 +87,15 @@ class AlbumList extends Component {
     render() {
         console.log(this.state);
         return (
-            <View>
+            // We previously had a View tag here, and since this is where we
+            // expect to have scroll function enabled, we replace the View tags
+            // with the 'ScrollView' tags.
+            <ScrollView>
+                { // NOTE: how we just call our constructor function here in
+                  // the JSX to render the content returned from this function.
+                }
                 {this.renderAlbums()}
-            </View>
+            </ScrollView>
         );
     }
 // Classes do not require semicolons.

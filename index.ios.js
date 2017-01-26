@@ -53,7 +53,11 @@ const App = () => (
     // Use self-closing tags for empty components.
     // For any component, must only have one return one tag, so must wrap with
     // a single top-level tag when we have multiple tags to return.
-    <View>
+    // NOTE: 'flex: 1' property here tells app to expand this component to fill
+    // the entire content area of the device. Not noticeable, but this corrects
+    // for the bounce-back we get after enabling ScrollView and attempting
+    // to scroll down.
+    <View style={{ flex: 1 }}>
         <Header headerText={'Albums'} />
         <AlbumList />
     </View>

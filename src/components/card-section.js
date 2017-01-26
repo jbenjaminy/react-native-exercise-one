@@ -18,7 +18,7 @@ const styles = {
         justifyContent: 'flex-start',
         flexDirection: 'row',
         position: 'relative'
-    },
+    }
 };
 
 export default CardSection;
