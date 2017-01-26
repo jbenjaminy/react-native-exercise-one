@@ -5,7 +5,7 @@ import { View } from 'react-native';
 // will show up in the props object as 'props.children'. (Like when we pass
 // our routes to the app component).
 const CardContainer = (props) => (
-        <View style={styles.containerStyle}>
+        <View style={styles.viewStyle}>
             {props.children}
         </View>
 );
