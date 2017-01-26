@@ -10,14 +10,16 @@ const AlbumDetail = ({ album }) => {
     const {
         thumbnail_image,
         title,
-        artist
+        artist,
+        album_image
     } = album;
 // destructure styles object, since we are referencing more than once.
     const {
         imageContainerStyle,
         imageStyle,
         textStyle,
-        headerTextStyle
+        headerTextStyle,
+        albumImageStyle
     } = styles;
     return (
         <CardContainer>
@@ -31,7 +33,10 @@ const AlbumDetail = ({ album }) => {
                         // to an image.
                         // Also must add styling to the image, specifying
                         // height and width, otherwise it will not appear to
-                        // render.
+                        // render. With no height or width set, it gets
+                        // condensed down to zero, and nothing will show up
+                        // on the screen of the device (even though it
+                        // technically renders).
                     }
                     <Image
                         style={imageStyle}
@@ -42,6 +47,19 @@ const AlbumDetail = ({ album }) => {
                     <Text style={headerTextStyle}>{title}</Text>
                     <Text>{artist}</Text>
                 </View>
+            </CardSection>
+            <CardSection>
+                {
+                    // Not easy for us to calculate the width of our image for
+                    // hardcoding, because we want it to span the entire width
+                    // of our CardSection. So we use trick in styling, where
+                    // we set a fixed height, with a width of 'null' and a
+                    // property 'flex' set to 1.
+                }
+                <Image
+                    style={albumImageStyle}
+                    source={{ uri: album_image }}
+                />
             </CardSection>
         </CardContainer>
     );
@@ -72,6 +90,12 @@ const styles = {
 // Styling for the 'title' text
     headerTextStyle: {
         fontSize: 18
+    },
+// Styling for album artwork image
+    albumImageStyle: {
+        height: 300,
+        flex: 1,
+        width: null
     }
 };
 
