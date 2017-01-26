@@ -11,7 +11,7 @@ const AlbumDetail = ({ album }) => {
         thumbnail_image,
         title,
         artist,
-        album_image
+        image
     } = album;
 // destructure styles object, since we are referencing more than once.
     const {
@@ -58,7 +58,7 @@ const AlbumDetail = ({ album }) => {
                 }
                 <Image
                     style={albumImageStyle}
-                    source={{ uri: album_image }}
+                    source={{ uri: image }}
                 />
             </CardSection>
         </CardContainer>
