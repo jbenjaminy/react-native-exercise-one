@@ -1,7 +1,10 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const Button = () => {
+// Destructuring to gain access to callback function passed in as prop.
+// The 'onPress' reference right here is exactly equal to the fat-arrow function
+// on line 74 of album-detail.js.
+const Button = ({ onPress }) => {
     const { buttonStyle, textStyle } = styles;
     return (
         // TouchableOpacity tag has touch functions:
@@ -11,10 +14,18 @@ const Button = () => {
             // callback or some code).
         // NOTE: the tag by itself doesn't appear like a button -- requires
         // styling.
-    // NOTE: onPress is an optional prop for TouchableOpacity, which takes
-    // a function to be called whenever the button is tapped.
+        // Another option is using 'TouchableHighlight'
+    // NOTE: onPress is an optional prop (event-handler) for TouchableOpacity,
+    // which takes a function to be called whenever the button is tapped.
+    // We want general logic inside of this event-handler so that we can
+    // re-use this button component.
+        // We pass in a prop called 'onPress' (arbitrarily), from the AlbumDetail
+        // component, and we need to tell the TouchableOpacity tag to run this
+        // function whenever it gets touched.
+    // We tell it to run the callback passed in as a prop from album-detail
+    // when the onPress event is triggered.
         <TouchableOpacity
-            onPress={() => console.log('pressed')}
+            onPress={onPress}
             style={buttonStyle}
         >
             <Text style={textStyle}>Purchase</Text>

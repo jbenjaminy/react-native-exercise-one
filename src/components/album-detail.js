@@ -62,7 +62,17 @@ const AlbumDetail = ({ album }) => {
                     source={{ uri: image }}
                 />
             </CardSection>
-            <Button />
+            {
+                // Pass onPress prop to the button. Calling this prop 'onPress'
+                // is not the same as passing the TouchableOpacity the 'onPress'
+                // event-handler. Could call this prop right here whatever we
+                // want. This button is a component we wrote ourself, and it is
+                // not expecting an onPress prop, the way TouchableOpacity is,
+                // so we have to go back and 'wire' this into the TouchableOpacity.
+            }
+            <CardSection>
+                <Button onPress={() => console.log(title)} />
+            </CardSection>
         </CardContainer>
     );
 };
