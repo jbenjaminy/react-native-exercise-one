@@ -65,11 +65,21 @@ class AlbumList extends Component {
             .then(response => this.setState({ albums: response.data }));
     }
 
+    // Whenever we want to use JavaScript in our JSX, we must wrap in curly braces.
+    // Must set keys for each item in a list in React. Only requirements are that
+    // it must be unique, and that it is the same value accross re-renders of the
+    // list (can't just set to index, because not necessarily consistent accross
+    // re-renders). Best case your resource already has an ID associated with
+    // it that you can set to the key.
+    renderAlbums() {
+        return this.state.albums.map(album => <Text key={album.title}>{album.title}</Text>);
+    }
+
     render() {
         console.log(this.state);
         return (
             <View>
-                <Text>Album List!</Text>
+                {this.renderAlbums()}
             </View>
         );
     }
