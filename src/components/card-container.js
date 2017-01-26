@@ -1,12 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const CardContainer = () => {
-    return (
+// Anytime we pass a component that we write another component, that component
+// will show up in the props object as 'props.children'. (Like when we pass
+// our routes to the app component).
+const CardContainer = (props) => (
         <View style={styles.containerStyle}>
+            {props.children}
         </View>
-    );
-};
+);
 
 const styles = {
     viewStyle: {
