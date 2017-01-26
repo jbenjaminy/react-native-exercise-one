@@ -8,6 +8,8 @@ import CardSection from './card-section';
     // or as seen in line 10
 const AlbumDetail = ({ album }) => {
     const { thumbnail_image, title, artist } = album;
+// destructure styles object, since we are referencing more than once.
+    const { imageStyle, textStyle } = styles;
     return (
         <CardContainer>
             <CardSection>
@@ -23,11 +25,11 @@ const AlbumDetail = ({ album }) => {
                         // render.
                     }
                     <Image
-                        style={styles.imageStyle}
+                        style={imageStyle}
                         source={{ uri: thumbnail_image }}
                     />
                 </View>
-                <View style={styles.textStyle}>
+                <View style={textStyle}>
                     <Text>{title}</Text>
                     <Text>{artist}</Text>
                 </View>
