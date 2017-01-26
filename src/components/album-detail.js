@@ -7,13 +7,22 @@ import CardSection from './card-section';
     // const AlbumDetail = ({ album: { thumbnail_image, title, artist } }) => (
     // or as seen in line 10
 const AlbumDetail = ({ album }) => {
-    const { thumbnail_image, title, artist } = album;
+    const {
+        thumbnail_image,
+        title,
+        artist
+    } = album;
 // destructure styles object, since we are referencing more than once.
-    const { imageStyle, textStyle } = styles;
+    const {
+        imageContainerStyle,
+        imageStyle,
+        textStyle,
+        headerTextStyle
+    } = styles;
     return (
         <CardContainer>
             <CardSection>
-                <View>
+                <View style={imageContainerStyle}>
                     {
                     // Image is another primitive component available through
                     // the react-native library.
@@ -30,7 +39,7 @@ const AlbumDetail = ({ album }) => {
                     />
                 </View>
                 <View style={textStyle}>
-                    <Text>{title}</Text>
+                    <Text style={headerTextStyle}>{title}</Text>
                     <Text>{artist}</Text>
                 </View>
             </CardSection>
@@ -39,14 +48,30 @@ const AlbumDetail = ({ album }) => {
 };
 
 const styles = {
+// Styling for the View tag containing the Image
+    imageContainerStyle: {
+    // layout styling
+        justifyContent: 'center',
+        alignItems: 'center',
+    // spacing
+        marginLeft: 10,
+        marginRight: 10
+    },
+// Styling for Image tag
     imageStyle: {
+    // sizing
         height: 50,
         width: 50
     },
+// Styling for Text tags
     textStyle: {
     // layout styling
         flexDirection: 'column',
         justifyContent: 'space-around'
+    },
+// Styling for the 'title' text
+    headerTextStyle: {
+        fontSize: 18
     }
 };
 
