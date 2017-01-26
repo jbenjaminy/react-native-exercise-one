@@ -6,11 +6,17 @@ const Button = () => {
     return (
         // TouchableOpacity tag has touch functions:
             // Providing feedback to the user that their tap was registered.
+                // Need to add hook to catch this and respond.
             // Giving us the ability to respond to these taps (e.g., to run a
             // callback or some code).
         // NOTE: the tag by itself doesn't appear like a button -- requires
         // styling.
-        <TouchableOpacity style={buttonStyle} >
+    // NOTE: onPress is an optional prop for TouchableOpacity, which takes
+    // a function to be called whenever the button is tapped.
+        <TouchableOpacity
+            onPress={() => console.log('pressed')}
+            style={buttonStyle}
+        >
             <Text style={textStyle}>Purchase</Text>
         </TouchableOpacity>
     );
