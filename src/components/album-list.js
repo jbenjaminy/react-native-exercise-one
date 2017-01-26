@@ -1,9 +1,10 @@
 // Must import the Component class from the React library, but don't want to
 // destructure the React library.
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 // axios is used to make http request.
 import axios from 'axios';
+import AlbumDetail from './album-detail';
 // ORIGINAL FUNCTIONAL COMPONENT REFACTORED INTO A CLASS-BASED COMPONENT.
 // const AlbumList = () => {
 //     return (
@@ -72,7 +73,8 @@ class AlbumList extends Component {
     // re-renders). Best case your resource already has an ID associated with
     // it that you can set to the key.
     renderAlbums() {
-        return this.state.albums.map(album => <Text key={album.title}>{album.title}</Text>);
+        return this.state.albums.map(album =>
+            <AlbumDetail key={album.title} album={album} />);
     }
 
     render() {
