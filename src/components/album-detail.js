@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Linking } from 'react-native';
 import CardContainer from './card-container';
 import CardSection from './card-section';
 import Button from './button';
@@ -12,7 +12,8 @@ const AlbumDetail = ({ album }) => {
         thumbnail_image,
         title,
         artist,
-        image
+        image,
+        url
     } = album;
 // destructure styles object, since we are referencing more than once.
     const {
@@ -71,7 +72,7 @@ const AlbumDetail = ({ album }) => {
                 // so we have to go back and 'wire' this into the TouchableOpacity.
             }
             <CardSection>
-                <Button onPress={() => console.log(title)} />
+                <Button onPress={() => Linking.openURL(url)} />
             </CardSection>
         </CardContainer>
     );
