@@ -10,7 +10,9 @@ import React, { Component } from 'react';
     // whenever we add a ScrollView.
 import { ScrollView } from 'react-native';
 // axios is used to make http request.
-import axios from 'axios';
+
+/* ----- import axios from 'axios'; -----*/
+
 import AlbumDetail from './album-detail';
 // ORIGINAL FUNCTIONAL COMPONENT REFACTORED INTO A CLASS-BASED COMPONENT.
 // const AlbumList = () => {
@@ -42,7 +44,50 @@ class AlbumList extends Component {
         // have access to a variable that we can make reference to inside of our
         // render method, that we can refer to as this.state.albums and that's
         // going to return an empty array.
-    state = { albums: [] };
+    state = { albums: [
+    {
+    title: 'Waiting',
+    artist: 'Thursday',
+    url: 'http://a.co/3kkaPmd',
+    image: 'https://i.imgur.com/XqI1zXv.jpg',
+    thumbnail_image: 'https://i.imgur.com/MnsbR8a.jpg?1'
+    },
+    {
+    title: 'Full Collapse',
+    artist: 'Thursday',
+    url: 'http://a.co/afUsWxq',
+    image: 'https://i.imgur.com/LYmnyfg.jpg',
+    thumbnail_image: 'https://i.imgur.com/mWQZbiM.jpg?1'
+    },
+    {
+    title: 'War All The Time',
+    artist: 'Thursday',
+    url: 'http://a.co/7DmBhob',
+    image: 'https://i.imgur.com/TqeUr3o.jpg',
+    thumbnail_image: 'https://i.imgur.com/Z15sUnU.jpg'
+    },
+    {
+    title: 'A City By the Light Divided',
+    artist: 'Thursday',
+    url: 'http://a.co/aavtT4o',
+    image: 'https://i.imgur.com/VOz7UEq.jpg',
+    thumbnail_image: 'https://i.imgur.com/swlolFY.jpg?1'
+    },
+    {
+    title: 'Common Existence',
+    artist: 'Thursday',
+    url: 'http://a.co/irydwG6',
+    image: 'https://i.imgur.com/GRwlXnv.jpg',
+    thumbnail_image: 'https://i.imgur.com/I3lPHnM.jpg?1'
+    },
+    {
+    title: 'No Devolucion',
+    artist: 'Thursday',
+    url: 'http://a.co/et6jQ7O',
+    image: 'https://i.imgur.com/3LCvCtp.jpg',
+    thumbnail_image: 'https://i.imgur.com/K7lx8P6.jpg?1'
+    },
+    ] };
     // anytime component is about to be rendered to our device, this method
     // will automatically be called for us.
     // Perfect location for initiating a data load in your app.
@@ -64,13 +109,18 @@ class AlbumList extends Component {
             // 3) Make sure that our component makes use of the state (by
             // tweaking render method).
         // 'State' is built in system in React.
-        axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+
+    /*----- axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+        -----*/
+
             // set the list of albums (available at response.data) to
             // our albums list in our state. we're switching the empty
             // array from the initial state to an array full of objects.
             // 'this.setState' is the only we we will update our component state,
             // never set it directly (mutating it)
-            .then(response => this.setState({ albums: response.data }));
+
+    /*------ .then(response => this.setState({ albums: response.data }));
+    -----*/
     }
 
     // Whenever we want to use JavaScript in our JSX, we must wrap in curly braces.
